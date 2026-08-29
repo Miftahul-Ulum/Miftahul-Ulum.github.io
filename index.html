@@ -1,595 +1,368 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0f172a" />
-  <meta name="description" content="Portofolio digital MUHAMMAD MIFTAHUL ULUM — Full-Stack Creative Tech & IT Specialist. Desain Vektor, Editing Video, dan Arsitektur Sistem IT & Laravel." />
-  <title>MUHAMMAD MIFTAHUL ULUM — Full-Stack Creative Tech & IT Specialist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#030712" />
+  <meta name="description" content="Portofolio digital MUHAMMAD MIFTAHUL ULUM, S.Kom — Full-Stack Creative Tech, IT Engineer & Graphic Designer." />
+  <title>Miftahul Ulum — Full-Stack Creative Tech &amp; IT Engineer</title>
+  <link rel="icon" href="data:," />
+  <meta property="og:title" content="Miftahul Ulum — Full-Stack Creative Tech" />
+  <meta property="og:description" content="Sistem yang kokoh, website yang cepat, visual yang meyakinkan." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="MUHAMMAD MIFTAHUL ULUM — Full-Stack Creative Tech & IT Specialist" />
-  <meta property="og:description" content="Portofolio digital MUHAMMAD MIFTAHUL ULUM — Desain Vektor, Editing Video, dan Arsitektur Sistem IT & Laravel." />
   <meta property="og:url" content="https://miftahul-ulum.github.io/" />
   <meta property="og:image" content="https://miftahul-ulum.github.io/foto-profil.png" />
-  <meta property="og:site_name" content="Portofolio Miftahul Ulum" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MUHAMMAD MIFTAHUL ULUM — Full-Stack Creative Tech & IT Specialist" />
-  <meta name="twitter:description" content="Portofolio digital MUHAMMAD MIFTAHUL ULUM — Desain Vektor, Editing Video, dan Arsitektur Sistem IT & Laravel." />
-  <meta name="twitter:image" content="https://miftahul-ulum.github.io/foto-profil.png" />
-  <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=CabinetGrotesk&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'Roboto', 'system-ui', 'sans-serif'] },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
           keyframes: {
-            'fade-up': { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
-            'glow-pulse': { '0%,100%': { opacity: '0.4' }, '50%': { opacity: '0.8' } },
-            shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+            marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            'glow-pulse': { '0%,100%': { opacity: '0.35' }, '50%': { opacity: '0.75' } },
           },
           animation: {
-            'fade-up': 'fade-up .7s ease both',
+            marquee: 'marquee 28s linear infinite',
             float: 'float 6s ease-in-out infinite',
-            'glow-pulse': 'glow-pulse 6s ease-in-out infinite',
-            shimmer: 'shimmer 4s linear infinite',
+            'glow-pulse': 'glow-pulse 7s ease-in-out infinite',
           },
         },
       },
     };
   </script>
   <style>
-    body { background: #020617; -webkit-font-smoothing: antialiased; }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.is-in { opacity: 1; transform: translateY(0); }
-    .backdrop-grid {
-      background-image:
-        linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
-      background-size: 44px 44px;
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    html { scroll-behavior: smooth; }
+    body { background: #030712; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .hero-glow {
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(56,189,248,.28), transparent 55%),
+        radial-gradient(ellipse at 80% -10%, rgba(168,85,247,.22), transparent 55%),
+        radial-gradient(ellipse at 60% 90%, rgba(16,185,129,.16), transparent 55%);
     }
-    .card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-    .card:hover { transform: translateY(-6px); }
-    .shine { position: relative; overflow: hidden; }
-    .shine::after {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%);
-      background-size: 200% 100%; background-position: -200% 0;
-      animation: shimmer 4.5s ease-in-out infinite;
+    .grain::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
     }
-    .nav-link { position: relative; }
-    .nav-link::after {
-      content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px;
-      background: linear-gradient(90deg, #38bdf8, #a855f7); border-radius: 2px;
-      transition: right .3s ease;
-    }
-    .nav-link:hover::after, .nav-link.active::after { right: 0; }
-    .prose-bar { transition: width 1.2s cubic-bezier(.2,.8,.2,1); }
+    .glass-nav { background: rgba(3,7,18,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .card { transition: transform .45s cubic-bezier(.2,.9,.3,1.2), border-color .3s, box-shadow .3s; }
+    .card:hover { transform: translateY(-6px) scale(1.02); }
+    .wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1.25rem; }
+    @media (min-width: 1024px) { .wrap { padding-inline: 2rem; } }
+    .tilt-text { text-wrap: balance; }
   </style>
 </head>
-<body class="font-sans bg-slate-950 text-white antialiased">
 
-  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
-    <div class="backdrop-grid absolute inset-0"></div>
-    <div class="absolute -top-48 -left-48 h-[520px] w-[520px] rounded-full bg-sky-500/15 blur-[140px] animate-glow-pulse"></div>
-    <div class="absolute top-1/3 -right-48 h-[560px] w-[560px] rounded-full bg-purple-500/15 blur-[150px] animate-glow-pulse" style="animation-delay:2s"></div>
-    <div class="absolute bottom-0 left-1/3 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[140px] animate-glow-pulse" style="animation-delay:4s"></div>
-  </div>
+<body class="grain font-sans bg-slate-950 text-white antialiased">
 
-  <header class="fixed inset-x-0 top-0 z-40 border-b border-white/5 bg-slate-950/70 backdrop-blur-xl">
-    <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
-      <a href="#beranda" class="flex items-center gap-2.5">
-        <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-purple-600 text-sm font-black text-white shadow-lg shadow-sky-500/30">MU</span>
-        <span class="hidden text-sm font-extrabold tracking-tight text-sky-400 sm:block">MiftahulUlum</span>
+  <!-- ============ NAV ============ -->
+  <header class="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
+    <nav class="glass-nav flex w-full max-w-5xl items-center justify-between rounded-full border border-white/10 px-5 py-3">
+      <a href="#beranda" class="flex items-center gap-2 text-sm font-black tracking-tight text-white">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-purple-500 text-[13px] font-black text-white">MU</span>
+        MiftahulUlum
       </a>
-
       <div class="hidden items-center gap-7 text-[13px] font-semibold text-slate-300 md:flex">
-        <a href="#beranda" class="nav-link hover:text-white">Beranda</a>
-        <a href="#tentang" class="nav-link hover:text-white">Tentang</a>
-        <a href="#keahlian" class="nav-link hover:text-white">Keahlian</a>
-        <a href="#proyek" class="nav-link hover:text-white">Proyek</a>
-        <a href="#sertifikat" class="nav-link hover:text-white">Sertifikat</a>
-        <a href="#kontak" class="nav-link hover:text-white">Kontak</a>
+        <a href="#beranda" class="hover:text-white">Beranda</a>
+        <a href="#tentang" class="hover:text-white">Tentang</a>
+        <a href="#keahlian" class="hover:text-white">Keahlian</a>
+        <a href="#karya" class="hover:text-white">Karya</a>
+        <a href="#sertifikat" class="hover:text-white">Sertifikat</a>
+        <a href="#kontak" class="hover:text-white">Kontak</a>
       </div>
-
-      <div class="flex items-center gap-3">
-        <a href="#kontak" class="hidden rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-5 py-2 text-[12px] font-black uppercase tracking-wider text-white shadow-lg shadow-sky-500/25 transition hover:brightness-110 active:scale-95 md:inline-flex">
-          Hubungi Saya
-        </a>
-        <button id="menuBtn" aria-label="Buka menu" class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white md:hidden">
-          <svg id="menuIconOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <svg id="menuIconClose" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
+      <a href="#kontak" class="hidden rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-5 py-2 text-[12px] font-black uppercase tracking-wider text-white shadow-lg shadow-sky-500/25 transition hover:brightness-110 md:inline-flex">Hubungi Saya</a>
+      <button id="menuBtn" aria-label="Buka menu" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden">
+        <svg id="icoOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="icoClose" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
     </nav>
-
-    <div id="mobileMenu" class="hidden border-t border-white/5 bg-slate-950/95 px-5 pb-5 pt-2 md:hidden">
-      <a href="#beranda" class="mobile-link block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-white">Beranda</a>
-      <a href="#tentang" class="mobile-link block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-white">Tentang</a>
-      <a href="#keahlian" class="mobile-link block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-white">Keahlian</a>
-      <a href="#proyek" class="mobile-link block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-white">Proyek</a>
-      <a href="#sertifikat" class="mobile-link block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-white">Sertifikat</a>
-      <a href="#kontak" class="mobile-link block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-white">Kontak</a>
+    <div id="mobileMenu" class="glass-nav mt-2 hidden w-full max-w-5xl flex-col gap-1 rounded-3xl border border-white/10 p-3 md:hidden">
+      <a href="#beranda" class="mob rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-white/5">Beranda</a>
+      <a href="#tentang" class="mob rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-white/5">Tentang</a>
+      <a href="#keahlian" class="mob rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-white/5">Keahlian</a>
+      <a href="#karya" class="mob rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-white/5">Karya</a>
+      <a href="#sertifikat" class="mob rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-white/5">Sertifikat</a>
+      <a href="#kontak" class="mob rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-white/5">Kontak</a>
     </div>
   </header>
 
-  <main class="overflow-hidden">
-    <section id="beranda" class="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-5 pb-16 pt-24 lg:px-8">
-      <div class="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+  <main class="overflow-x-hidden w-full max-w-full">
+
+    <!-- ============ HERO (Cinematic Center) ============ -->
+    <section id="beranda" class="hero-glow relative flex min-h-[100svh] flex-col items-center justify-center px-5 pb-20 pt-28 text-center">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-1/2 h-[54rem] w-[54rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-500/10 blur-[120px] animate-glow-pulse"></div>
+      </div>
+
+      <div class="reveal-inline inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1.5 text-[11px] font-extrabold tracking-wider text-emerald-300">
+        <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span></span>
+        Open for Remote Work
+      </div>
+
+      <h1 class="gsap-hero mx-auto mt-8 max-w-5xl text-[clamp(2.6rem,6vw,5.5rem)] font-black leading-[1.04] tracking-tighter tilt-text">
+        Saya membangun
+        <span class="inline-block align-middle mx-3 h-16 w-24 overflow-hidden rounded-full align-middle hidden sm:inline-block"><img src="foto-profil.png" alt="" class="h-full w-full object-cover" /></span>
+        sistem yang <span class="text-sky-400">kokoh</span>,
+        website yang <span class="text-purple-400">cepat</span>,
+        visual yang <span class="text-emerald-400">meyakinkan</span>.
+      </h1>
+
+      <p class="gsap-hero mx-auto mt-6 max-w-2xl text-[clamp(0.95rem,2.5vw,1.1rem)] leading-relaxed text-slate-400">
+        Muhammad Miftahul Ulum, S.Kom — Full-Stack Creative Tech &amp; IT Engineer.
+        Memadukan logika engineering yang kokoh dengan estetika visual yang presisi untuk menciptakan solusi digital yang mendorong pertumbuhan bisnis.
+      </p>
+
+      <div class="gsap-hero mt-9 flex flex-wrap items-center justify-center gap-4">
+        <a href="#karya" class="rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-3.5 text-[13px] font-black uppercase tracking-wider text-white shadow-xl shadow-sky-500/25 transition hover:brightness-110 active:scale-95">Lihat Karya Saya</a>
+        <a href="#kontak" class="rounded-full border border-white/20 px-8 py-3.5 text-[13px] font-black uppercase tracking-wider text-white transition hover:bg-white/10 active:scale-95">Hubungi Saya</a>
+      </div>
+
+      <div class="pointer-events-none absolute bottom-7 left-1/2 -translate-x-1/2">
+        <div class="flex h-10 w-6 items-start justify-center rounded-full border border-white/20 p-1.5">
+          <div class="h-2 w-1 rounded-full bg-sky-400 animate-bounce"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="relative overflow-hidden border-y border-white/10 bg-white/[0.02] py-5">
+      <div class="flex w-max animate-marquee gap-10 whitespace-nowrap text-[13px] font-black uppercase tracking-[0.3em] text-slate-500">
+        <span>CorelDRAW</span><span class="text-sky-500/60">•</span><span>Premiere Pro</span><span class="text-purple-500/60">•</span><span>Laravel</span><span class="text-emerald-500/60">•</span><span>Photoshop</span><span class="text-red-500/60">•</span><span>HTML/CSS/JS</span><span class="text-sky-500/60">•</span><span>WordPress</span><span class="text-purple-500/60">•</span>
+        <span>CorelDRAW</span><span class="text-sky-500/60">•</span><span>Premiere Pro</span><span class="text-purple-500/60">•</span><span>Laravel</span><span class="text-emerald-500/60">•</span><span>Photoshop</span><span class="text-red-500/60">•</span><span>HTML/CSS/JS</span><span class="text-sky-500/60">•</span><span>WordPress</span><span class="text-purple-500/60">•</span>
+      </div>
+    </div>
+
+    <!-- ============ TENTANG (Interest - Editorial) ============ -->
+    <section id="tentang" class="wrap py-32 md:py-48">
+      <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <div class="reveal inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1.5 text-[11px] font-extrabold tracking-wider text-emerald-300">
-            <span class="relative flex h-2 w-2">
-              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
-            </span>
-            OPEN FOR REMOTE WORK
-          </div>
-
-          <h1 class="reveal mt-6 text-[clamp(2rem,7vw,3.75rem)] font-black leading-[1.12] tracking-tight text-white" style="--d:.1s">
-            MUHAMMAD<br /><span class="bg-gradient-to-r from-sky-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">MIFTAHUL ULUM</span>
-          </h1>
-
-          <p class="reveal mt-3 text-[clamp(1rem,3vw,1.25rem)] font-bold text-sky-400" style="--d:.2s">Full-Stack Creative Tech • IT Engineer • Graphic Designer</p>
-
-          <p class="reveal mt-5 max-w-xl text-[clamp(0.9rem,2.6vw,1rem)] leading-relaxed text-slate-400" style="--d:.3s">
-            Memadukan logika engineering dengan kepekaan desain, saya membangun solusi digital — sistem yang kokoh, website yang cepat, dan visual yang meyakinkan — untuk membantu bisnis beroperasi lebih efisien dan tampil menonjol di tengah persaingan.
-          </p>
-
-          <div class="reveal mt-8 flex flex-wrap items-center gap-4" style="--d:.4s">
-            <a href="#proyek" class="rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-7 py-3 text-[13px] font-black uppercase tracking-wider text-white shadow-xl shadow-sky-500/25 transition hover:brightness-110 active:scale-95">Lihat Karya Saya</a>
-            <a href="#kontak" class="rounded-full border border-sky-500/40 px-7 py-3 text-[13px] font-black uppercase tracking-wider text-sky-300 transition hover:bg-sky-500/10 active:scale-95">Hubungi Saya</a>
-          </div>
-
-          <div class="reveal mt-10 grid max-w-md grid-cols-3 gap-4" style="--d:.5s">
-            <div>
-              <p class="text-2xl font-black text-sky-400">5+</p>
-              <p class="mt-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">Tahun Pengalaman</p>
-            </div>
-            <div>
-              <p class="text-2xl font-black text-purple-400">40+</p>
-              <p class="mt-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">Proyek Selesai</p>
-            </div>
-            <div>
-              <p class="text-2xl font-black text-emerald-400">100%</p>
-              <p class="mt-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">Komitmen</p>
-            </div>
-          </div>
+          <p class="gsap-p text-[11px] font-black tracking-[0.35em] text-slate-500">Profil Singkat</p>
+          <h2 class="gsap-p mt-4 text-[clamp(1.8rem,4.4vw,3.2rem)] font-black leading-[1.08] tracking-tight tilt-text">
+            Kreativitas yang ditenagai <span class="text-sky-400">teknologi</span>, teknologi yang diberi <span class="text-purple-400">kreativitas</span>.
+          </h2>
         </div>
+        <div class="max-w-xl lg:justify-self-end">
+          <p class="gsap-p text-[15px] leading-relaxed text-slate-300">5+ tahun pengalaman, 40+ proyek selesai. Saya merancang sistem yang andal, membangun website yang cepat, dan menciptakan visual yang dinamis — menghubungkan teknologi dan desain menjadi solusi digital yang mendorong pertumbuhan bisnis.</p>
+          <p class="gsap-p mt-4 text-[15px] leading-relaxed text-slate-400">Kombinasi antara engineering (Laravel, sistem &amp; API) dan desain (CorelDRAW, Premiere Pro, Photoshop) memungkinkan saya memahami sebuah produk dari logika hingga tampilannya.</p>
+        </div>
+      </div>
 
-        <div class="reveal relative mx-auto w-full max-w-[70vw] sm:max-w-sm lg:max-w-md" style="--d:.3s">
-          <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-sky-500/30 via-purple-500/25 to-red-500/20 blur-2xl animate-glow-pulse"></div>
-          <div class="relative animate-float">
-            <img src="foto-profil.png" alt="Foto profil MUHAMMAD MIFTAHUL ULUM"
-              class="w-full h-auto rounded-[2rem]" />
-            <div class="absolute inset-x-0 bottom-0 p-5">
-              <div class="flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/80 p-3 backdrop-blur">
-                <span class="relative flex h-2.5 w-2.5 shrink-0">
-                  <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-                </span>
-                <div>
-                  <p class="text-[11px] font-black text-white">Tersedia untuk Proyek Remote</p>
-                  <p class="text-[10px] font-semibold text-slate-400">helloulum.dev@gmail.com · Respon cepat</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- 3 keahlian -->
+      <div class="mt-20 grid gap-6 md:grid-cols-3">
+        <div class="card group rounded-3xl border border-sky-500/20 bg-slate-900/60 p-8 hover:border-sky-500/60">
+          <div class="text-3xl">Vector</div>
+          <h3 class="mt-6 text-2xl font-black text-white">Desain Vektor</h3>
+          <p class="mt-3 text-[14px] leading-relaxed text-slate-400">Packaging, logo, dan media cetak berkualitas tinggi dengan CorelDRAW &amp; Photoshop, siap produksi.</p>
+        </div>
+        <div class="card group rounded-3xl border border-purple-500/20 bg-slate-900/60 p-8 hover:border-purple-500/60">
+          <div class="text-3xl">Cut</div>
+          <h3 class="mt-6 text-2xl font-black text-white">Editing Video</h3>
+          <p class="mt-3 text-[14px] leading-relaxed text-slate-400">Iklan, konten sosial media, dan video sinematik dengan ritme, transisi, dan color grading profesional.</p>
+        </div>
+        <div class="card group rounded-3xl border border-red-500/20 bg-slate-900/60 p-8 hover:border-red-500/60">
+          <div class="text-3xl">Code</div>
+          <h3 class="mt-6 text-2xl font-black text-white">Arsitektur Sistem IT</h3>
+          <p class="mt-3 text-[14px] leading-relaxed text-slate-400">Pengembangan sistem web &amp; API dengan Laravel, pengelolaan server, dan optimasi performa.</p>
         </div>
       </div>
     </section>
 
-    <section id="tentang" class="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <p class="text-[11px] font-black tracking-[0.35em] text-sky-400">TENTANG SAYA</p>
-        <h2 class="mt-3 text-[clamp(1.5rem,4.6vw,2.4rem)] font-black tracking-tight text-white">Kreativitas yang Ditenagai <span class="text-sky-400">Teknologi</span>, Teknologi yang Diberi <span class="text-purple-400">Kreativitas</span></h2>
-        <p class="mt-5 max-w-xl text-[14px] leading-relaxed text-slate-300">Memadukan logika engineering yang kokoh dengan estetika visual yang presisi. Saya merancang sistem andal, membangun website cepat, dan menciptakan visual dinamis—menghubungkan teknologi dan desain menjadi solusi digital yang mendorong pertumbuhan bisnis.</p>
+    <!-- ============ KEAHLIAN (Bento - Interest) ============ -->
+    <section id="keahlian" class="wrap py-32 md:py-48">
+      <div class="mb-16 text-center">
+        <p class="gsap-p text-[11px] font-black tracking-[0.35em] text-slate-500">Keahlian Teknis</p>
+        <h2 class="gsap-p mx-auto mt-4 max-w-3xl text-[clamp(1.8rem,4.4vw,3.2rem)] font-black leading-[1.08] tracking-tight tilt-text">
+          Tool yang saya kuasai untuk <span class="text-sky-400">membuat</span> dan <span class="text-purple-400">menjaga</span> produk Anda.
+        </h2>
       </div>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div class="reveal card rounded-2xl border border-sky-500/20 bg-slate-800/50 p-6 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/15 text-2xl">🎨</div>
-          <h3 class="mt-4 text-lg font-black text-white">Desain Vektor</h3>
-          <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Packaging, logo, dan media cetak berkualitas tinggi dengan CorelDRAW &amp; Photoshop yang siap produksi.</p>
+      <div class="grid grid-flow-dense grid-cols-6 gap-4 md:grid-cols-12">
+        <!-- 6 skill: 3 per baris, col-span-4 -->
+        <div class="col-span-6 rounded-3xl border border-white/10 bg-slate-900/60 p-6 md:col-span-4">
+          <div class="flex items-center justify-between"><span class="text-[15px] font-bold text-white">CorelDRAW</span><span class="text-lg font-black text-amber-400">92%</span></div>
+          <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800"><div class="bar h-full w-full bg-gradient-to-r from-amber-400 to-orange-500" data-w="92%" style="width:0%"></div></div>
         </div>
-        <div class="reveal card rounded-2xl border border-purple-500/20 bg-slate-800/50 p-6 hover:border-purple-500/60 hover:shadow-2xl hover:shadow-purple-500/10" style="--d:.1s">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/15 text-2xl">🎬</div>
-          <h3 class="mt-4 text-lg font-black text-white">Editing Video</h3>
-          <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Iklan, konten sosial media, dan video sinematik dengan ritme, transisi, dan color grading profesional.</p>
+        <div class="col-span-6 rounded-3xl border border-white/10 bg-slate-900/60 p-6 md:col-span-4">
+          <div class="flex items-center justify-between"><span class="text-[15px] font-bold text-white">Premiere Pro</span><span class="text-lg font-black text-purple-400">85%</span></div>
+          <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800"><div class="bar h-full w-full bg-gradient-to-r from-purple-400 to-fuchsia-500" data-w="85%" style="width:0%"></div></div>
         </div>
-        <div class="reveal card rounded-2xl border border-red-500/20 bg-slate-800/50 p-6 hover:border-red-500/60 hover:shadow-2xl hover:shadow-red-500/10" style="--d:.2s">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/15 text-2xl">🚀</div>
-          <h3 class="mt-4 text-lg font-black text-white">Arsitektur Sistem IT</h3>
-          <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Pengembangan sistem web &amp; API dengan Laravel, pengelolaan server, dan optimasi performa.</p>
+        <div class="col-span-6 rounded-3xl border border-white/10 bg-slate-900/60 p-6 md:col-span-4">
+          <div class="flex items-center justify-between"><span class="text-[15px] font-bold text-white">Laravel</span><span class="text-lg font-black text-red-400">80%</span></div>
+          <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800"><div class="bar h-full w-full bg-gradient-to-r from-red-400 to-rose-500" data-w="80%" style="width:0%"></div></div>
         </div>
-      </div>
-    </section>
+        <div class="col-span-6 rounded-3xl border border-white/10 bg-slate-900/60 p-6 md:col-span-4">
+          <div class="flex items-center justify-between"><span class="text-[15px] font-bold text-white">HTML / CSS</span><span class="text-lg font-black text-emerald-400">95%</span></div>
+          <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800"><div class="bar h-full w-full bg-gradient-to-r from-emerald-400 to-green-500" data-w="95%" style="width:0%"></div></div>
+        </div>
+        <div class="col-span-6 rounded-3xl border border-white/10 bg-slate-900/60 p-6 md:col-span-4">
+          <div class="flex items-center justify-between"><span class="text-[15px] font-bold text-white">Photoshop</span><span class="text-lg font-black text-sky-400">85%</span></div>
+          <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800"><div class="bar h-full w-full bg-gradient-to-r from-sky-400 to-blue-500" data-w="85%" style="width:0%"></div></div>
+        </div>
+        <div class="col-span-6 rounded-3xl border border-white/10 bg-slate-900/60 p-6 md:col-span-4">
+          <div class="flex items-center justify-between"><span class="text-[15px] font-bold text-white">WordPress</span><span class="text-lg font-black text-teal-400">78%</span></div>
+          <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-800"><div class="bar h-full w-full bg-gradient-to-r from-teal-400 to-cyan-500" data-w="78%" style="width:0%"></div></div>
+        </div>
 
-    <section id="keahlian" class="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <p class="text-[11px] font-black tracking-[0.35em] text-sky-400">SOFTWARE &amp; TECH SKILLS</p>
-        <h2 class="mt-3 text-[clamp(1.5rem,4.6vw,2.4rem)] font-black tracking-tight text-white">Keahlian Teknis Saya</h2>
-      </div>
-
-      <div class="mt-10 grid gap-x-10 gap-y-6 md:grid-cols-2">
-        <div class="reveal group">
-          <div class="flex items-center justify-between text-[15px] font-bold">
-            <span class="flex items-center gap-2.5 text-white"><svg viewBox="0 0 24 24" class="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-125" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#F26522"/><text x="12" y="16.5" font-size="11" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">C</text></svg>CorelDRAW</span><span class="text-lg font-black text-sky-400">92%</span>
-          </div>
-          <div class="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
-            <div class="prose-bar h-full w-0 rounded-full bg-gradient-to-r from-amber-400 to-orange-500" data-width="92%"></div>
-          </div>
+        <!-- Stat strip: 3 sel col-span-4 penuh (gapless) -->
+        <div class="col-span-2 rounded-3xl bg-slate-900/60 p-6 text-center md:col-span-4">
+          <p class="text-3xl font-black text-sky-400">5+</p>
+          <p class="mt-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">Thn Pengalaman</p>
         </div>
-        <div class="reveal group" style="--d:.05s">
-          <div class="flex items-center justify-between text-[15px] font-bold">
-            <span class="flex items-center gap-2.5 text-white"><svg viewBox="0 0 24 24" class="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-125" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#9999FF"/><text x="12" y="16" font-size="9" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#00005A" text-anchor="middle">Pr</text></svg>Premiere Pro</span><span class="text-lg font-black text-sky-400">85%</span>
-          </div>
-          <div class="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
-            <div class="prose-bar h-full w-0 rounded-full bg-gradient-to-r from-purple-400 to-fuchsia-500" data-width="85%"></div>
-          </div>
+        <div class="col-span-2 rounded-3xl bg-slate-900/60 p-6 text-center md:col-span-4">
+          <p class="text-3xl font-black text-purple-400">40+</p>
+          <p class="mt-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">Proyek Selesai</p>
         </div>
-        <div class="reveal group" style="--d:.1s">
-          <div class="flex items-center justify-between text-[15px] font-bold">
-            <span class="flex items-center gap-2.5 text-white"><svg viewBox="0 0 24 24" class="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-125" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" fill="#FF2D20"/><path d="M6.5 15.5h5v1.5h-5z" fill="#fff" opacity=".85"/><text x="12" y="16.2" font-size="10.5" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">L</text></svg>Laravel Framework</span><span class="text-lg font-black text-sky-400">80%</span>
-          </div>
-          <div class="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
-            <div class="prose-bar h-full w-0 rounded-full bg-gradient-to-r from-red-400 to-rose-500" data-width="80%"></div>
-          </div>
-        </div>
-        <div class="reveal group" style="--d:.15s">
-          <div class="flex items-center justify-between text-[15px] font-bold">
-            <span class="flex items-center gap-2.5 text-white"><svg viewBox="0 0 24 24" class="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-125" aria-hidden="true"><path d="M12 1.5 20.5 4 19 18 12 21.5 5 18 3.5 4Z" fill="#E44D26"/><path d="M17.7 6.2H7.4l.3 3.5h6.9l-.4 4.3-2.2.7-2.2-.7-.1-1.6H6.4l.2 3.2 5.4 1.8 5.4-1.8.3-6.4.3-3z" fill="#fff" opacity="0"/><text x="12" y="16" font-size="10" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text></svg>HTML5 / CSS3</span><span class="text-lg font-black text-sky-400">95%</span>
-          </div>
-          <div class="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
-            <div class="prose-bar h-full w-0 rounded-full bg-gradient-to-r from-green-400 to-emerald-500" data-width="95%"></div>
-          </div>
-        </div>
-        <div class="reveal group" style="--d:.2s">
-          <div class="flex items-center justify-between text-[15px] font-bold">
-            <span class="flex items-center gap-2.5 text-white"><svg viewBox="0 0 24 24" class="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-125" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#31A8FF"/><text x="12" y="16" font-size="9" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#000050" text-anchor="middle">Ps</text></svg>Photoshop</span><span class="text-lg font-black text-sky-400">85%</span>
-          </div>
-          <div class="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
-            <div class="prose-bar h-full w-0 rounded-full bg-gradient-to-r from-sky-400 to-blue-500" data-width="85%"></div>
-          </div>
-        </div>
-        <div class="reveal group" style="--d:.25s">
-          <div class="flex items-center justify-between text-[15px] font-bold">
-            <span class="flex items-center gap-2.5 text-white"><svg viewBox="0 0 24 24" class="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-125" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#21759B"/><text x="12" y="16" font-size="11" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">W</text></svg>WordPress / cPanel</span><span class="text-lg font-black text-sky-400">78%</span>
-          </div>
-          <div class="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
-            <div class="prose-bar h-full w-0 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500" data-width="78%"></div>
-          </div>
+        <div class="col-span-2 rounded-3xl bg-slate-900/60 p-6 text-center md:col-span-4">
+          <p class="text-3xl font-black text-emerald-400">100%</p>
+          <p class="mt-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">Komitmen</p>
         </div>
       </div>
     </section>
 
-    <section id="proyek" class="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-      <div class="reveal flex flex-wrap items-end justify-between gap-4">
-        <div class="max-w-2xl">
-          <p class="text-[11px] font-black tracking-[0.35em] text-sky-400">MY PROJECTS (HASIL KARYA)</p>
-          <h2 class="mt-3 text-[clamp(1.5rem,4.6vw,2.4rem)] font-black tracking-tight text-white">Hasil Karya Saya</h2>
+    <!-- ============ KARYA (Desire - GSAP) ============ -->
+    <section id="karya" class="wrap py-32 md:py-48">
+      <div class="mb-16 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="gsap-p text-[11px] font-black tracking-[0.35em] text-slate-500">Tampilan &amp; Karya</p>
+          <h2 class="gsap-p mt-4 max-w-2xl text-[clamp(1.8rem,4.4vw,3.2rem)] font-black leading-[1.08] tracking-tight tilt-text">Hasil karya yang bisa Anda <span class="text-sky-400">sentuh</span>.</h2>
+        </div>
+        <div class="flex flex-wrap gap-2" id="projectTabs">
+          <button type="button" data-tab="all" class="tab rounded-full border border-sky-500/40 bg-sky-500/10 px-5 py-2 text-[12px] font-black uppercase tracking-wider text-sky-300">Semua</button>
+          <button type="button" data-tab="feed" class="tab rounded-full border border-slate-700 bg-slate-800/50 px-5 py-2 text-[12px] font-black uppercase tracking-wider text-slate-400 hover:text-white">Feed Instagram</button>
+          <button type="button" data-tab="print" class="tab rounded-full border border-slate-700 bg-slate-800/50 px-5 py-2 text-[12px] font-black uppercase tracking-wider text-slate-400 hover:text-white">Media Cetak</button>
+          <button type="button" data-tab="logo" class="tab rounded-full border border-slate-700 bg-slate-800/50 px-5 py-2 text-[12px] font-black uppercase tracking-wider text-slate-400 hover:text-white">Logo</button>
+          <button type="button" data-tab="web" class="tab rounded-full border border-slate-700 bg-slate-800/50 px-5 py-2 text-[12px] font-black uppercase tracking-wider text-slate-400 hover:text-white">Web &amp; Sistem</button>
         </div>
       </div>
 
-      <div class="reveal mt-8 flex flex-wrap gap-2" id="projectTabs">
-        <button type="button" data-tab="feed" class="tab-btn rounded-full border border-sky-500/40 bg-sky-500/10 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-sky-300 transition hover:bg-sky-500/20">Feed Instagram</button>
-        <button type="button" data-tab="logo" class="tab-btn rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-slate-400 transition hover:text-white">Logo</button>
-        <button type="button" data-tab="web" class="tab-btn rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-slate-400 transition hover:text-white">Web &amp; Sistem</button>
-        <button type="button" data-tab="print" class="tab-btn rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-slate-400 transition hover:text-white">Media Cetak</button>
-      </div>
-
-      <div class="mt-8">
-        <div class="project-panel" data-panel="feed">
-          <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/feed-ig/Feed%20Ucapan%20HUT%20RI%20-%20Dishub%20-%20Rev1.png" alt="Feed Ucapan HUT RI - Dishub" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-amber-400">Desain Feed Instagram · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Feed Ucapan HUT RI · Dishub</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Desain feed ucapan HUT RI dengan layout informatif dan visual menarik untuk akun Instagram Dishub.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">Photoshop</span>
-                </div>
-              </div>
-            </div>
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/feed-ig/Cegah%20Kebakaran%20Dishub%20-%20rev2.png" alt="Feed Edukasi Cegah Kebakaran - Dishub" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Desain Feed Instagram · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Feed Edukasi Cegah Kebakaran</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Desain feed edukasi pencegahan kebakaran dengan ilustrasi jelas dan pesan yang mudah dipahami publik.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">Photoshop</span>
-                </div>
-              </div>
-            </div>
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/feed-ig/Koperasi%20Promo%20Agustus%202026%20-%20Rev%202.png" alt="Koperasi Promo Agustus 2026" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-red-400">Desain Feed Instagram · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Koperasi Promo Agustus</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Desain feed promosi Agustus untuk koperasi dengan tone meriah dan ajakan promo yang kuat.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">Photoshop</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-panel hidden" data-panel="logo">
-          <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/logo/Logo%20OTS.png" alt="Logo OTS" class="h-full w-full object-contain p-6 cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-amber-400">Desain Logo · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Logo OTS</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Identitas logo untuk brand OTS — bersih, modern, dan mudah dikenali di berbagai media.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">Photoshop</span>
-                </div>
-              </div>
-            </div>
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/logo/Naya%20Tenun%20Logo.png" alt="Logo Naya Tenun" class="h-full w-full object-contain p-6 cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Desain Logo · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Logo Naya Tenun</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Logo untuk brand tenun Naya dengan sentuhan budaya lokal dan estetika yang elegan.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">Photoshop</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-panel hidden" data-panel="web">
-          <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/Web/SIDS.png" alt="Sistem Informasi Departure Ship (SIDS)" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-green-400">Aplikasi Sistem Informasi</p>
-                <h3 class="mt-2 text-lg font-black text-white">Sistem Informasi Departure Ship (SIDS)</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Aplikasi sistem informasi keberangkatan kapal (departure ship) untuk pengelolaan data keberangkatan yang efisien, akurat, dan mudah diakses.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">HTML</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CSS</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">JS</span>
-                </div>
-              </div>
-            </div>
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/Web/simarin.png" alt="Simarin - Rekapitulasi dan Analisis Data Penumpang" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-green-400">Aplikasi Analisis Data</p>
-                <h3 class="mt-2 text-lg font-black text-white">Simarin — Rekap &amp; Analisis Data Penumpang</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Aplikasi rekapitulasi dan analisis data penumpang untuk menyusun laporan yang akurat serta mendukung pengambilan keputusan.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">HTML</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CSS</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">JS</span>
-                </div>
-              </div>
-            </div>
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/Web/Aqilajati.png" alt="Website E-Commerce Aqilajati" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-green-400">E-Commerce</p>
-                <h3 class="mt-2 text-lg font-black text-white">E-Commerce Aqilajati</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Toko online profesional dengan alur belanja yang jelas, tampilan produk rapi, dan pengalaman pengguna yang nyaman untuk konversi lebih baik.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">HTML</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CSS</span>
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">JS</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-panel hidden" data-panel="print">
-          <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/print/Pamflet%20R21.jpg" alt="Pamflet R21" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-amber-400">Desain Pamflet · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Pamflet R21</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Desain pamflet promosi dengan layout informatif dan visual menarik untuk kebutuhan cetak.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                </div>
-              </div>
-            </div>
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/print/Kupon%20Jalan%20Sehat.jpg" alt="Kupon Jalan Sehat" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Desain Kupon · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Kupon Jalan Sehat</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Desain kupon acara jalan sehat dengan tampilan ceria, jelas, dan siap cetak untuk distribusi.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                </div>
-              </div>
-            </div>
-            <div class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-              <div class="aspect-video w-full overflow-hidden bg-slate-900">
-                <img src="karya/print/Banner%20RT21.jpg" alt="Banner RT21" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <div class="p-5">
-                <p class="text-[10px] font-black uppercase tracking-widest text-red-400">Banner · CorelDRAW</p>
-                <h3 class="mt-2 text-lg font-black text-white">Banner RT21</h3>
-                <p class="mt-2 text-[13px] leading-relaxed text-slate-400">Desain banner untuk RT21 dengan layout tegas, warna mencolok, dan informasi yang mudah dibaca.</p>
-                <div class="mt-4 flex flex-wrap gap-1.5">
-                  <span class="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] font-bold text-slate-300">CorelDRAW</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sertifikat" class="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <p class="text-[11px] font-black tracking-[0.35em] text-sky-400">SERTIFIKASI</p>
-        <h2 class="mt-3 text-[clamp(1.5rem,4.6vw,2.4rem)] font-black tracking-tight text-white">Sertifikat &amp; Pelatihan</h2>
-        <p class="mt-4 text-[14px] leading-relaxed text-slate-400">Kompetensi yang terus diasah melalui pelatihan dan sertifikasi di bidang keamanan siber, AI, dan literasi digital.</p>
-      </div>
-
-      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <a href="sertifikat/keamanan-siber-era-digital.jpg" target="_blank" rel="noopener" class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="aspect-video w-full overflow-hidden bg-slate-900">
-            <img src="sertifikat/keamanan-siber-era-digital.jpg" alt="Sertifikat Keamanan Siber di Era Digital" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <div class="p-5">
-            <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Keamanan Siber · 2023</p>
-            <h3 class="mt-2 text-base font-black text-white">Keamanan Siber di Era Digital</h3>
-            <p class="mt-1 text-[12px] font-semibold text-slate-400">Dilatih.co</p>
-          </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="karyaGrid">
+        <!-- FEED -->
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="feed" href="karya/feed-ig/Feed%20Ucapan%20HUT%20RI%20-%20Dishub%20-%20Rev1.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/feed-ig/Feed%20Ucapan%20HUT%20RI%20-%20Dishub%20-%20Rev1.png" alt="Feed Ucapan HUT RI Dishub" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-amber-400">Feed Instagram</p><h3 class="mt-2 text-lg font-black text-white">Feed Ucapan HUT RI · Dishub</h3></div>
         </a>
-        <a href="sertifikat/webinar-ransomware.jpg" target="_blank" rel="noopener" class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="aspect-video w-full overflow-hidden bg-slate-900">
-            <img src="sertifikat/webinar-ransomware.jpg" alt="Sertifikat Webinar Ransomware, Penipuan, Hoax" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <div class="p-5">
-            <p class="text-[10px] font-black uppercase tracking-widest text-red-400">Webinar · 2023</p>
-            <h3 class="mt-2 text-base font-black text-white">Ransomware, Penipuan, Hoax: Siapkah Kita?</h3>
-            <p class="mt-1 text-[12px] font-semibold text-slate-400">Webinar Nasional</p>
-          </div>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="feed" href="karya/feed-ig/Cegah%20Kebakaran%20Dishub%20-%20rev2.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/feed-ig/Cegah%20Kebakaran%20Dishub%20-%20rev2.png" alt="Feed Edukasi Cegah Kebakaran Dishub" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Feed Instagram</p><h3 class="mt-2 text-lg font-black text-white">Feed Edukasi Cegah Kebakaran</h3></div>
         </a>
-        <a href="sertifikat/ai-content-creation.jpg" target="_blank" rel="noopener" class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="aspect-video w-full overflow-hidden bg-slate-900">
-            <img src="sertifikat/ai-content-creation.jpg" alt="Sertifikat Artificial Intelligence for Content Creation" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <div class="p-5">
-            <p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Artificial Intelligence · 2026</p>
-            <h3 class="mt-2 text-base font-black text-white">AI for Content Creation</h3>
-            <p class="mt-1 text-[12px] font-semibold text-slate-400">Pelatihan Bersertifikat</p>
-          </div>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="feed" href="karya/feed-ig/Koperasi%20Promo%20Agustus%202026%20-%20Rev%202.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/feed-ig/Koperasi%20Promo%20Agustus%202026%20-%20Rev%202.png" alt="Koperasi Promo Agustus" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-red-400">Feed Instagram</p><h3 class="mt-2 text-lg font-black text-white">Koperasi Promo Agustus</h3></div>
         </a>
-        <a href="sertifikat/keamanan-ai.jpg" target="_blank" rel="noopener" class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="aspect-video w-full overflow-hidden bg-slate-900">
-            <img src="sertifikat/keamanan-ai.jpg" alt="Sertifikat Dasar-dasar Keamanan AI" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <div class="p-5">
-            <p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Artificial Intelligence · 2026</p>
-            <h3 class="mt-2 text-base font-black text-white">Dasar-dasar Keamanan AI</h3>
-            <p class="mt-1 text-[12px] font-semibold text-slate-400">Pelatihan Bersertifikat</p>
-          </div>
+        <!-- PRINT -->
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="print" href="karya/print/Pamflet%20R21.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/print/Pamflet%20R21.jpg" alt="Pamflet R21" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-amber-400">Media Cetak</p><h3 class="mt-2 text-lg font-black text-white">Pamflet R21</h3></div>
         </a>
-        <a href="sertifikat/ethical-hacker.jpg" target="_blank" rel="noopener" class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="aspect-video w-full overflow-hidden bg-slate-900">
-            <img src="sertifikat/ethical-hacker.jpg" alt="Sertifikat Ethical Hacker For Dummies" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <div class="p-5">
-            <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Keamanan Siber · 2026</p>
-            <h3 class="mt-2 text-base font-black text-white">Ethical Hacker For Dummies</h3>
-            <p class="mt-1 text-[12px] font-semibold text-slate-400">Pelatihan Bersertifikat</p>
-          </div>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="print" href="karya/print/Kupon%20Jalan%20Sehat.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/print/Kupon%20Jalan%20Sehat.jpg" alt="Kupon Jalan Sehat" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Media Cetak</p><h3 class="mt-2 text-lg font-black text-white">Kupon Jalan Sehat</h3></div>
         </a>
-        <a href="sertifikat/literasi-digital-pemerintahan.jpg" target="_blank" rel="noopener" class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="aspect-video w-full overflow-hidden bg-slate-900">
-            <img src="sertifikat/literasi-digital-pemerintahan.jpg" alt="Sertifikat Fasilitasi Pandu Literasi Digital Segmen Pemerintahan" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <div class="p-5">
-            <p class="text-[10px] font-black uppercase tracking-widest text-sky-400">Literasi Digital · 2026</p>
-            <h3 class="mt-2 text-base font-black text-white">Fasilitasi Pandu Literasi Digital Segmen Pemerintahan</h3>
-            <p class="mt-1 text-[12px] font-semibold text-slate-400">Program Literasi Digital</p>
-          </div>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="print" href="karya/print/Banner%20RT21.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/print/Banner%20RT21.jpg" alt="Banner RT21" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-red-400">Media Cetak</p><h3 class="mt-2 text-lg font-black text-white">Banner RT21</h3></div>
         </a>
-        <a href="sertifikat/webinar-elevaite.jpg" target="_blank" rel="noopener" class="card group overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-800/50 hover:border-sky-500/60 hover:shadow-2xl hover:shadow-sky-500/10">
-          <div class="aspect-video w-full overflow-hidden bg-slate-900">
-            <img src="sertifikat/webinar-elevaite.jpg" alt="Sertifikat Webinar ElevAIte Y26" loading="lazy" class="h-full w-full object-contain cursor-zoom-in transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <div class="p-5">
-            <p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Webinar · 2026</p>
-            <h3 class="mt-2 text-base font-black text-white">Webinar ElevAIte Y26</h3>
-            <p class="mt-1 text-[12px] font-semibold text-slate-400">26 Februari 2026</p>
-          </div>
+        <!-- LOGO -->
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="logo" href="karya/logo/Logo%20OTS.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/logo/Logo%20OTS.png" alt="Logo OTS" loading="lazy" class="h-full w-full object-contain p-6 transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-amber-400">Logo</p><h3 class="mt-2 text-lg font-black text-white">Logo OTS</h3></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="logo" href="karya/logo/Naya%20Tenun%20Logo.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/logo/Naya%20Tenun%20Logo.png" alt="Logo Naya Tenun" loading="lazy" class="h-full w-full object-contain p-6 transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Logo</p><h3 class="mt-2 text-lg font-black text-white">Logo Naya Tenun</h3></div>
+        </a>
+        <!-- WEB -->
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="web" href="karya/Web/SIDS.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/Web/SIDS.png" alt="Sistem Informasi Departure Ship" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Web &amp; Sistem</p><h3 class="mt-2 text-lg font-black text-white">Sistem Informasi Departure Ship</h3></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="web" href="karya/Web/simarin.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/Web/simarin.png" alt="Simarin" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Web &amp; Sistem</p><h3 class="mt-2 text-lg font-black text-white">Simarin</h3></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" data-t="web" href="karya/Web/Aqilajati.png" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="karya/Web/Aqilajati.png" alt="E-Commerce Aqilajati" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Web &amp; Sistem</p><h3 class="mt-2 text-lg font-black text-white">E-Commerce Aqilajati</h3></div>
         </a>
       </div>
     </section>
 
-    <section id="kontak" class="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-      <div class="reveal shine relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-700 p-8 shadow-2xl shadow-sky-500/20 sm:p-12">
-        <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
-        <div class="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-purple-400/20 blur-3xl"></div>
+    <!-- ============ SERTIFIKAT (Desire - GSAP) ============ -->
+    <section id="sertifikat" class="wrap py-32 md:py-48">
+      <div class="mb-16 max-w-2xl">
+        <p class="gsap-p text-[11px] font-black tracking-[0.35em] text-slate-500">Sertifikasi</p>
+        <h2 class="gsap-p mt-4 text-[clamp(1.8rem,4.4vw,3.2rem)] font-black leading-[1.08] tracking-tight tilt-text">Kompetensi yang terus <span class="text-sky-400">diasah</span>.</h2>
+      </div>
 
-        <div class="relative grid items-center gap-8 lg:grid-cols-2">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="sertGrid">
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-emerald-500/60" href="sertifikat/keamanan-siber-era-digital.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="sertifikat/keamanan-siber-era-digital.jpg" alt="Sertifikat Keamanan Siber" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Keamanan Siber · 2023</p><h3 class="mt-2 text-base font-black text-white">Keamanan Siber di Era Digital</h3><p class="mt-1 text-[12px] font-semibold text-slate-400">Dilatih.co</p></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-red-500/60" href="sertifikat/webinar-ransomware.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="sertifikat/webinar-ransomware.jpg" alt="Sertifikat Webinar Ransomware" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-red-400">Webinar · 2023</p><h3 class="mt-2 text-base font-black text-white">Ransomware, Penipuan, Hoax: Siapkah Kita?</h3><p class="mt-1 text-[12px] font-semibold text-slate-400">Webinar Nasional</p></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-purple-500/60" href="sertifikat/ai-content-creation.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="sertifikat/ai-content-creation.jpg" alt="Sertifikat AI Content Creation" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Artificial Intelligence · 2026</p><h3 class="mt-2 text-base font-black text-white">AI for Content Creation</h3><p class="mt-1 text-[12px] font-semibold text-slate-400">Pelatihan Bersertifikat</p></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-purple-500/60" href="sertifikat/keamanan-ai.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="sertifikat/keamanan-ai.jpg" alt="Sertifikat Keamanan AI" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Artificial Intelligence · 2026</p><h3 class="mt-2 text-base font-black text-white">Dasar-dasar Keamanan AI</h3><p class="mt-1 text-[12px] font-semibold text-slate-400">Pelatihan Bersertifikat</p></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-emerald-500/60" href="sertifikat/ethical-hacker.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="sertifikat/ethical-hacker.jpg" alt="Sertifikat Ethical Hacker" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-emerald-400">Keamanan Siber · 2026</p><h3 class="mt-2 text-base font-black text-white">Ethical Hacker For Dummies</h3><p class="mt-1 text-[12px] font-semibold text-slate-400">Pelatihan Bersertifikat</p></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-sky-500/60" href="sertifikat/literasi-digital-pemerintahan.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="sertifikat/literasi-digital-pemerintahan.jpg" alt="Sertifikat Literasi Digital" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-sky-400">Literasi Digital · 2026</p><h3 class="mt-2 text-base font-black text-white">Fasilitasi Pandu Literasi Digital Segmen Pemerintahan</h3><p class="mt-1 text-[12px] font-semibold text-slate-400">Program Literasi Digital</p></div>
+        </a>
+        <a class="item-card card group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 hover:border-purple-500/60" href="sertifikat/webinar-elevaite.jpg" target="_blank" rel="noopener">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-950"><img src="sertifikat/webinar-elevaite.jpg" alt="Sertifikat Webinar ElevAIte" loading="lazy" class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110" /></div>
+          <div class="p-5"><p class="text-[10px] font-black uppercase tracking-widest text-purple-400">Webinar · 2026</p><h3 class="mt-2 text-base font-black text-white">Webinar ElevAIte Y26</h3><p class="mt-1 text-[12px] font-semibold text-slate-400">26 Februari 2026</p></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ KONTAK (Action) ============ -->
+    <section id="kontak" class="wrap py-32 md:py-48">
+      <div class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-700 p-10 shadow-2xl shadow-sky-500/20 sm:p-16">
+        <div class="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-purple-400/25 blur-3xl"></div>
+
+        <div class="relative grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <p class="text-[11px] font-black tracking-[0.35em] text-blue-100">KONTAK &amp; KOLABORASI</p>
-            <h2 class="mt-3 text-[clamp(1.5rem,4.6vw,2.4rem)] font-black tracking-tight text-white">Tertarik Bekerja Sama?</h2>
-            <p class="mt-4 max-w-md text-[14px] leading-relaxed text-blue-100">
-              Hubungi saya untuk diskusi proyek, desain, pembuatan video, atau lamaran remote. Saya siap membantu mewujudkan ide Anda.
-            </p>
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a href="https://miftahul-ulum.github.io" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[12px] font-black text-blue-700 transition hover:bg-blue-50 active:scale-95">🌐 miftahul-ulum.github.io</a>
-              <a href="https://wa.me/6289524500594" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-[12px] font-black text-white transition hover:bg-white/20 active:scale-95">
-                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.87-9.9 9.87zm8.42-18.29A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.47-8.4z"/></svg>
-                WhatsApp
-            </a>
-          </div>
+            <p class="text-[11px] font-black tracking-[0.35em] text-blue-100">Kolaborasi</p>
+            <h2 class="mt-4 text-[clamp(2rem,5vw,3.4rem)] font-black leading-[1.05] tracking-tight text-white">Punya ide? Mari kita <span class="text-white underline decoration-white/40">wujudkan</span>.</h2>
+            <p class="mt-5 max-w-md text-[15px] leading-relaxed text-blue-100">Diskusi proyek, desain, produksi video, sistem web, atau lamaran remote. Saya siap membantu mewujudkan ide Anda menjadi kenyataan.</p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href="mailto:helloulum.dev@gmail.com" class="rounded-full bg-white px-6 py-3 text-[13px] font-black text-blue-700 transition hover:bg-blue-50 active:scale-95">Email Saya</a>
+              <a href="https://wa.me/6289524500594" target="_blank" rel="noopener" class="rounded-full border border-white/40 px-6 py-3 text-[13px] font-black text-white transition hover:bg-white/10 active:scale-95">WhatsApp</a>
+            </div>
           </div>
 
           <div class="grid gap-3">
             <a href="mailto:helloulum.dev@gmail.com" class="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/5 p-4 transition hover:bg-white/10">
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">✉️</span>
-              <div>
-                <p class="text-[10px] font-black uppercase tracking-widest text-blue-200">Email</p>
-                <p class="text-sm font-bold text-white">helloulum.dev@gmail.com</p>
-              </div>
-            </a>
-            <a href="https://instagram.com/helloulum" target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/5 p-4 transition hover:bg-white/10">
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">📸</span>
-              <div>
-                <p class="text-[10px] font-black uppercase tracking-widest text-blue-200">Instagram</p>
-                <p class="text-sm font-bold text-white">@helloulum</p>
-              </div>
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">@</span>
+              <div><p class="text-[10px] font-black uppercase tracking-widest text-blue-200">Email</p><p class="text-sm font-bold text-white">helloulum.dev@gmail.com</p></div>
             </a>
             <a href="https://wa.me/6289524500594" target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/5 p-4 transition hover:bg-white/10">
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">📱</span>
-              <div>
-                <p class="text-[10px] font-black uppercase tracking-widest text-blue-200">WhatsApp</p>
-                <p class="text-sm font-bold text-white">+62 895-2450-0594</p>
-              </div>
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">WA</span>
+              <div><p class="text-[10px] font-black uppercase tracking-widest text-blue-200">WhatsApp</p><p class="text-sm font-bold text-white">+62 895-2450-0594</p></div>
             </a>
-            <a href="https://miftahul-ulum.github.io" target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/5 p-4 transition hover:bg-white/10">
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">🌐</span>
-              <div>
-                <p class="text-[10px] font-black uppercase tracking-widest text-blue-200">Website</p>
-                <p class="text-sm font-bold text-white">miftahul-ulum.github.io</p>
-              </div>
+            <a href="https://instagram.com/helloulum" target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/5 p-4 transition hover:bg-white/10">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">IG</span>
+              <div><p class="text-[10px] font-black uppercase tracking-widest text-blue-200">Instagram</p><p class="text-sm font-bold text-white">@helloulum</p></div>
+            </a>
+            <a href="https://github.com/Miftahul-Ulum" target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/5 p-4 transition hover:bg-white/10">
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-lg">GH</span>
+              <div><p class="text-[10px] font-black uppercase tracking-widest text-blue-200">GitHub</p><p class="text-sm font-bold text-white">github.com/Miftahul-Ulum</p></div>
             </a>
           </div>
         </div>
@@ -598,139 +371,80 @@
   </main>
 
   <footer class="border-t border-white/5">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-8 sm:flex-row lg:px-8">
-      <p class="text-[11px] font-semibold tracking-wider text-slate-500">© 2026 MUHAMMAD MIFTAHUL ULUM · All rights reserved</p>
-      <div class="flex items-center gap-4">
-        <a href="https://github.com/Miftahul-Ulum" target="_blank" rel="noopener" title="GitHub" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition hover:border-sky-400 hover:text-sky-400 active:scale-90">
-          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.11-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-        </a>
-        <a href="#" title="LinkedIn" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition hover:border-sky-400 hover:text-sky-400 active:scale-90">
-          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-        </a>
-        <a href="https://instagram.com/helloulum" target="_blank" rel="noopener" title="Instagram" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition hover:border-purple-400 hover:text-purple-400 active:scale-90">
-          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
-        </a>
-        <a href="https://wa.me/6289524500594" target="_blank" rel="noopener" title="WhatsApp" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition hover:border-emerald-400 hover:text-emerald-400 active:scale-90">
-          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.87-9.9 9.87zm8.42-18.29A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.47-8.4z"/></svg>
-        </a>
-      </div>
+    <div class="wrap flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
+      <p class="text-[11px] font-semibold tracking-wider text-slate-500">© 2026 Muhammad Miftahul Ulum, S.Kom · All rights reserved</p>
+      <p class="text-[11px] font-semibold tracking-wider text-slate-600">helloulum.dev@gmail.com</p>
     </div>
   </footer>
 
-  <button id="scrollTop" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-sky-500/40 bg-slate-900/80 text-sky-400 shadow-lg backdrop-blur transition hover:bg-sky-500/10 active:scale-90">
+  <button id="scrollTop" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-sky-500/40 bg-slate-900/80 text-sky-400 shadow-lg backdrop-blur transition hover:bg-sky-500/10 active:scale-90">
     <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
   </button>
 
-  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/90 p-4 backdrop-blur-sm sm:p-8" role="dialog" aria-modal="true" aria-label="Pratinjau karya">
-    <button type="button" id="lightboxClose" aria-label="Tutup" class="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-slate-900/80 text-white transition hover:bg-slate-800 active:scale-90">
-      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="max-h-full max-w-full overflow-auto">
-      <img id="lightboxImg" src="" alt="" class="mx-auto max-h-[85vh] w-auto max-w-full rounded-xl object-contain" />
-      <p id="lightboxCaption" class="mt-3 text-center text-sm font-semibold text-slate-200"></p>
-    </div>
-  </div>
-
+  <!-- ============ SCRIPTS ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
+    gsap.registerPlugin(ScrollTrigger);
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // ---- Mobile menu ----
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    const iconOpen = document.getElementById("menuIconOpen");
-    const iconClose = document.getElementById("menuIconClose");
-
-    function toggleMenu() {
-      const open = mobileMenu.classList.toggle("hidden") === false;
-      iconOpen.classList.toggle("hidden", open);
-      iconClose.classList.toggle("hidden", !open);
-    }
-    menuBtn.addEventListener("click", toggleMenu);
-    document.querySelectorAll(".mobile-link").forEach(l => l.addEventListener("click", () => {
-      if (!mobileMenu.classList.contains("hidden")) toggleMenu();
+    menuBtn.addEventListener("click", () => {
+      const o = mobileMenu.classList.toggle("hidden");
+      document.getElementById("icoOpen").classList.toggle("hidden", !o);
+      document.getElementById("icoClose").classList.toggle("hidden", o);
+    });
+    document.querySelectorAll(".mob").forEach(l => l.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      document.getElementById("icoOpen").classList.remove("hidden");
+      document.getElementById("icoClose").classList.add("hidden");
     }));
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        en.target.classList.add("is-in");
-        en.target.querySelectorAll(".prose-bar").forEach(bar => {
-          bar.style.width = bar.dataset.width;
-        });
-        observer.unobserve(en.target);
+    // ---- Tab filter karya ----
+    const tabs = document.querySelectorAll("#projectTabs .tab");
+    const items = document.querySelectorAll(".item-card");
+    function applyTab(t) {
+      tabs.forEach(b => {
+        const on = b.dataset.tab === t;
+        b.className = "tab rounded-full px-5 py-2 text-[12px] font-black uppercase tracking-wider " + (on
+          ? "border border-sky-500/40 bg-sky-500/10 text-sky-300"
+          : "border border-slate-700 bg-slate-800/50 text-slate-400 hover:text-white");
       });
-    }, { threshold: 0.15 });
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-link");
-    window.addEventListener("scroll", () => {
-      const pos = window.scrollY + 120;
-      sections.forEach(sec => {
-        const top = sec.offsetTop;
-        const bottom = top + sec.offsetHeight;
-        if (pos >= top && pos < bottom) {
-          navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + sec.id));
-        }
+      items.forEach(el => {
+        el.style.display = (t === "all" || el.dataset.t === t) ? "" : "none";
       });
-      document.getElementById("scrollTop").classList.toggle("hidden", window.scrollY < 500);
-      document.getElementById("scrollTop").classList.toggle("flex", window.scrollY >= 500);
-    });
+      ScrollTrigger.refresh();
+    }
+    tabs.forEach(b => b.addEventListener("click", () => applyTab(b.dataset.tab)));
 
-    document.getElementById("scrollTop").addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    const projectTabs = document.querySelectorAll("#projectTabs .tab-btn");
-    const projectPanels = document.querySelectorAll(".project-panel");
-
-    function setTab(name) {
-      projectTabs.forEach(b => {
-        const on = b.dataset.tab === name;
-        b.classList.toggle("border-sky-500/40", on);
-        b.classList.toggle("bg-sky-500/10", on);
-        b.classList.toggle("text-sky-300", on);
-        b.classList.toggle("border-slate-700", !on);
-        b.classList.toggle("bg-slate-800/50", !on);
-        b.classList.toggle("text-slate-400", !on);
+    // ---- Hero reveal ----
+    if (!prefersReduced) {
+      gsap.to(".gsap-hero", { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: "power3.out" });
+      // scrub text reveal (jadi satu paragraf, reveal per bagian)
+      gsap.from(".gsap-hero span.s-inline", { opacity: 0.1, stagger: 0.03, scrollTrigger: { trigger: ".gsap-hero", start: "top 80%", scrub: true } });
+      // reveal helper pada judul bagian
+      gsap.utils.toArray(".gsap-p").forEach(el => {
+        gsap.from(el, { opacity: 0, y: 24, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 85%" } });
       });
-      projectPanels.forEach(p => p.classList.toggle("hidden", p.dataset.panel !== name));
-      window.dispatchEvent(new Event("resize"));
+      // skill bars count up
+      gsap.utils.toArray(".bar").forEach(el => {
+        gsap.to(el, { width: el.dataset.w, duration: 1.2, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%" } });
+      });
+      // karya & sertifikat image scale + fade in
+      gsap.utils.toArray(".item-card").forEach(el => {
+        gsap.from(el, { scale: 0.85, opacity: 0, duration: 0.7, ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 90%" } });
+      });
+      // scroll top button muncul
+      const scrollTop = document.getElementById("scrollTop");
+      ScrollTrigger.create({ start: 600, onEnter: () => scrollTop.classList.remove("hidden"), onLeaveBack: () => scrollTop.classList.add("hidden") });
+      scrollTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    } else {
+      document.querySelectorAll(".gsap-hero, .gsap-p, .item-card").forEach(el => { el.style.opacity = 1; });
+      document.querySelectorAll(".bar").forEach(el => { el.style.width = el.dataset.w; });
     }
-
-    projectTabs.forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab)));
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const lightboxCaption = document.getElementById("lightboxCaption");
-    const lightboxClose = document.getElementById("lightboxClose");
-
-    function openLightbox(img) {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || "";
-      const card = img.closest(".card");
-      const title = card ? card.querySelector("h3") : null;
-      lightboxCaption.textContent = title ? title.textContent : "";
-      lightbox.classList.remove("hidden");
-      lightbox.classList.add("flex");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeLightbox() {
-      lightbox.classList.add("hidden");
-      lightbox.classList.remove("flex");
-      document.body.style.overflow = "";
-      lightboxImg.src = "";
-    }
-
-    document.querySelectorAll("#proyek .aspect-video img").forEach(img => {
-      img.addEventListener("click", () => openLightbox(img));
-    });
-
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", e => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape") closeLightbox();
-    });
   </script>
 </body>
 </html>
